@@ -286,6 +286,17 @@ server {
     }
 }
 
+server {
+    listen 443;
+    listen [::]:443;
+
+    server_name scrum.login.no issues.login.no;
+    include snippets/errors.conf;
+
+    location / {
+        return 302 https://github.com/orgs/login-linjeforeningen-for-it/projects/1;
+    }
+}
 
 server {
     listen 443;
