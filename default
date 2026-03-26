@@ -290,18 +290,6 @@ server {
     listen 443;
     listen [::]:443;
 
-    server_name scrum.login.no issues.login.no;
-    include snippets/errors.conf;
-
-    location / {
-        return 302 https://github.com/orgs/login-linjeforeningen-for-it/projects/1;
-    }
-}
-
-server {
-    listen 443;
-    listen [::]:443;
-
     server_name login.no;
     include snippets/errors.conf;
 
@@ -337,6 +325,38 @@ server {
 
     server_name logout.no;
     return 301 https://login.no/pwned;
+}
+
+server {
+    listen 443;
+    listen [::]:443;
+
+    server_name scrum.login.no issues.login.no;
+    return 301 https://github.com/orgs/login-linjeforeningen-for-it/projects/1;
+}
+
+server {
+    listen 443;
+    listen [::]:443;
+
+    server_name infra.login.no infrastruktur.login.no;
+    return 301 https://github.com/orgs/login-linjeforeningen-for-it/projects/4;
+}
+
+server {
+    listen 443;
+    listen [::]:443;
+
+    server_name github.login.no;
+    return 301 https://github.com/orgs/login-linjeforeningen-for-it/;
+}
+
+server {
+    listen 443;
+    listen [::]:443;
+
+    server_name discord.login.no;
+    return 301 https://discord.com/invite/login-ntnu;
 }
 
 server {
